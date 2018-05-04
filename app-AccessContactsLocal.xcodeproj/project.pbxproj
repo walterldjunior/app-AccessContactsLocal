@@ -13,6 +13,7 @@
 		DD61C234209C949C00FB484B /* app_AccessContactsLocal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD61C232209C949C00FB484B /* app_AccessContactsLocal.xcdatamodeld */; };
 		DD61C236209C949D00FB484B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD61C235209C949D00FB484B /* Assets.xcassets */; };
 		DD61C239209C949D00FB484B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD61C237209C949D00FB484B /* LaunchScreen.storyboard */; };
+		DD61C241209C959F00FB484B /* ContactStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61C240209C959F00FB484B /* ContactStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DD61C235209C949D00FB484B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD61C238209C949D00FB484B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD61C23A209C949D00FB484B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD61C240209C959F00FB484B /* ContactStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				DD61C22B209C949C00FB484B /* AppDelegate.swift */,
 				DD61C22D209C949C00FB484B /* ViewController.swift */,
+				DD61C240209C959F00FB484B /* ContactStruct.swift */,
 				DD61C22F209C949C00FB484B /* Main.storyboard */,
 				DD61C235209C949D00FB484B /* Assets.xcassets */,
 				DD61C237209C949D00FB484B /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				DD61C22E209C949C00FB484B /* ViewController.swift in Sources */,
 				DD61C22C209C949C00FB484B /* AppDelegate.swift in Sources */,
 				DD61C234209C949C00FB484B /* app_AccessContactsLocal.xcdatamodeld in Sources */,
+				DD61C241209C959F00FB484B /* ContactStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KS6G5WGUSD;
 				INFOPLIST_FILE = "app-AccessContactsLocal/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KS6G5WGUSD;
 				INFOPLIST_FILE = "app-AccessContactsLocal/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
