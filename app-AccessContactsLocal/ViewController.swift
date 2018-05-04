@@ -51,12 +51,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let request = CNContactFetchRequest(keysToFetch: key)
         
-         try! contactStore.enumerateContacts(with: request) { (contact, stoppingPointer) in
+        try! contactStore.enumerateContacts(with: request) { (contact, stoppingPointer) in
             let name = contact.givenName
             let familyName = contact.familyName
-            let number = contact.phoneNumbers.first?.value.stringValue
+            guard let number = contact.phoneNumbers.first?.value.stringValue else { return }
             
-            let contactToAppend = ContactStruct(givenName: name, familyName: familyName, number: number!)
+            let contactToAppend = ContactStruct(givenName: name, familyName: familyName, number: number)
             
             self.contacts.append(contactToAppend)
         }
@@ -75,11 +75,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let contactToDisplay = contacts[indexPath.row]
         
-        cell.textLabel?.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
+        cell.textLabel?.text = contactToDisplay.givenName + " " + contactToDisplay.familyName!
         cell.detailTextLabel?.text = contactToDisplay.number
         
         return cell
     }
-    
 }
 
