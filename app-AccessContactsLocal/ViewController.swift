@@ -66,19 +66,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     // MARK: table manipulation
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let contactToDisplay = contacts[indexPath.row]
         
-        cell.textLabel?.text = contactToDisplay.givenName + " " + contactToDisplay.familyName!
-        cell.detailTextLabel?.text = contactToDisplay.number
+        let cellReuse = "cellReuse"
+        
+    
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuse, for: indexPath) as! ContactCell
+        
+        cell.lblName.text = contactToDisplay.givenName + " " + contactToDisplay.familyName!
+        cell.lblNumber.text = contactToDisplay.number
+        
+        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        //cell.textLabel?.text = contactToDisplay.givenName + " " + contactToDisplay.familyName!
+        //cell.detailTextLabel?.text = contactToDisplay.number
         
         return cell
+    }
+    
+    // MARK: next page
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailContactSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let contactSelect = self.contacts[indexPath.row]
+                
+                let viewControllerDestino = segue.destination as! DetailContactViewController
+                viewControllerDestino.contact = contactSelect
+            }
+        }
     }
 }
 
