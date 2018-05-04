@@ -9,10 +9,11 @@
 import UIKit
 import Contacts
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - outlet / variable
     @IBOutlet weak var tableView: UITableView!
+    
     var contactStore = CNContactStore()
     var contacts = [ContactStruct]()
     
@@ -20,8 +21,12 @@ class ViewController: UIViewController {
     // MARK: - view manipulation
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        tableView.delegate = self
+        tableView.dataSource = self
         
         requestContactsStore()
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,8 +62,24 @@ class ViewController: UIViewController {
         }
         
         tableView.reloadData()
-        
     }
-
+    
+    
+    // MARK: table manipulation
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contacts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        let contactToDisplay = contacts[indexPath.row]
+        
+        cell.textLabel?.text = contactToDisplay.givenName + " " + contactToDisplay.familyName
+        cell.detailTextLabel?.text = contactToDisplay.number
+        
+        return cell
+    }
+    
 }
 
